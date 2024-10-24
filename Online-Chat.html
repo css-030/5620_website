@@ -4,7 +4,7 @@
 * @version 1.0.0-beta20
 * @link https://tabler.io
 * Copyright 2018-2023 The Tabler Authors
-* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Copyright 2018-2023 codecalm.net John Smith
 * Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
 -->
 <html lang="en">
@@ -204,10 +204,10 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                             aria-label="Open user menu">
-                            <span class="avatar avatar-sm"
-                                style="background-image: url(./static/avatars/004m.jpg)"></span>
+                            <span class="avatar avatar-sm" style="background-image: url(./static/avatars/004m.jpg)"
+                                id="user-avatar"></span>
                             <div class="d-none d-xl-block ps-2">
-                                <div>Paweł Kuna</div>
+                                <div id="user-name">John Smith</div>
                                 <div id="user-role" class="mt-1 small text-secondary">Student</div>
                             </div>
                         </a>
@@ -429,78 +429,65 @@
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-12 col-lg-5 col-xl-3 border-end">
-                                <!-- <div class="card-header d-none d-md-block">
-                                    <div class="input-icon">
-                                        <span class="input-icon-addon">
-                                        
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                                                <path d="M21 21l-6 -6" />
-                                            </svg>
-                                        </span>
-                                        <input type="text" value="" class="form-control" placeholder="Search…"
-                                            aria-label="Search" />
-                                    </div>
-                                </div> -->
+
                                 <div class="card-body p-0 scrollable" style="max-height: 35rem">
                                     <div class="nav flex-column nav-pills" role="tablist">
-                                        <a href="#chat-1" class="nav-link text-start mw-100 p-3 active" id="chat-1-tab"
-                                            data-bs-toggle="pill" role="tab" aria-selected="true" >
+                                        <a href="javascript:void(0);" class="nav-link text-start mw-100 p-3 active"
+                                            id="chat-1-tab" data-bs-toggle="pill" role="tab" aria-selected="true"
+                                            onclick="switchChat('chat1','typingText1')">
                                             <div class="row align-items-center flex-fill">
                                                 <div class="col-auto"><span class="avatar"
-                                                        style="background-image: url(./static/avatars/000m.jpg)"></span>
+                                                        style="background-image: url(./static/avatars/009m.jpg)"></span>
                                                 </div>
                                                 <div class="col text-body">
-                                                    <div>Mallory Hulme</div>
-                                                    <div class="text-secondary text-truncate w-100" id="typingText">typing...</div>
+                                                    <div>Jack Chen</div>
+                                                    <div class="text-secondary text-truncate w-100" id="typingText1">
+                                                        yes, any else?</div>
                                                 </div>
                                             </div>
                                         </a>
 
-                                        <a href="#chat-1" class="nav-link text-start mw-100 p-3" id="chat-1-tab"
-                                            data-bs-toggle="pill" role="tab" aria-selected="true" >
+                                        <a href="javascript:void(0);" class="nav-link text-start mw-100 p-3"
+                                            id="chat-1-tab" data-bs-toggle="pill" role="tab" aria-selected="true"
+                                            onclick="switchChat('chat2','typingText2')">
                                             <div class="row align-items-center flex-fill">
                                                 <div class="col-auto"><span class="avatar"
-                                                        style="background-image: url(./static/avatars/002m.jpg)"></span>
+                                                        style="background-image: url(./static/avatars/012m.jpg)"></span>
                                                 </div>
                                                 <div class="col text-body">
-                                                    <div> James Miller</div>
-                                                    <div class="text-secondary text-truncate w-100">I see you've
-                                                        refactored the <code>calculateStatistics</code> function. The
-                                                        code is much cleaner now.</div>
+                                                    <div> David Zhang</div>
+                                                    <div class="text-secondary text-truncate w-100" id="typingText2">
+                                                        Of course! Probability is the likelih... </div>
                                                 </div>
                                             </div>
                                         </a>
-                                        <a href="#chat-1" class="nav-link text-start mw-100 p-3" id="chat-1-tab"
-                                            data-bs-toggle="pill" role="tab" aria-selected="true">
+                                        <a href="javascript:void(0);" class="nav-link text-start mw-100 p-3"
+                                            id="chat-1-tab" data-bs-toggle="pill" role="tab" aria-selected="true"
+                                            onclick="switchChat('chat3','typingText3')">
                                             <div class="row align-items-center flex-fill">
                                                 <div class="col-auto"><span class="avatar"
-                                                        style="background-image: url(./static/avatars/003m.jpg)"></span>
+                                                        style="background-image: url(./static/avatars/011m.jpg)"></span>
                                                 </div>
                                                 <div class="col text-body">
-                                                    <div>Dunn Slane</div>
-                                                    <div class="text-secondary text-truncate w-100">Yes, I thought it
-                                                        was getting a bit cluttered.</div>
+                                                    <div>Eric Liu</div>
+                                                    <div class="text-secondary text-truncate w-100" id="typingText3">
+                                                        I want to see you in my office after class</div>
                                                 </div>
                                             </div>
                                         </a>
 
 
-                                        <a href="#chat-1" class="nav-link text-start mw-100 p-3" id="chat-1-tab"
-                                            data-bs-toggle="pill" role="tab" aria-selected="true">
+                                        <a href="javascript:void(0);" class="nav-link text-start mw-100 p-3"
+                                            id="chat-1-tab" data-bs-toggle="pill" role="tab" aria-selected="true"
+                                            onclick="switchChat('chat4','typingText4')">
                                             <div class="row align-items-center flex-fill">
                                                 <div class="col-auto"><span class="avatar"
                                                         style="background-image: url(./static/avatars/002f.jpg)"></span>
                                                 </div>
                                                 <div class="col text-body">
-                                                    <div>Kellie Skingley</div>
-                                                    <div class="text-secondary text-truncate w-100">I see a couple of
-                                                        edge cases we might not be handling in the
-                                                        <code>calculateStatistic</code> function. Should I open an issue
-                                                        for that?
+                                                    <div>Lisa Wang</div>
+                                                    <div class="text-secondary text-truncate w-100" id="typingText4">
+                                                        Hi Ms Wang, I'd like to take ...
                                                     </div>
                                                 </div>
                                             </div>
@@ -512,145 +499,284 @@
                             </div>
                             <div class="col-12 col-lg-7 col-xl-9 d-flex flex-column">
                                 <div class="card-body scrollable" style="height: 35rem">
-                                    <div class="chat"  id="chat-container">
-                                        <div class="chat-bubbles">
-                                            <div class="chat-item">
-                                                <div class="row align-items-end justify-content-end">
-                                                    <div class="col col-lg-6">
-                                                        <div class="chat-bubble chat-bubble-me">
-                                                            <div class="chat-bubble-title">
-                                                                <div class="row">
-                                                                    <div class="col chat-bubble-author">Paweł Kuna</div>
-                                                                    <div class="col-auto chat-bubble-date">09:32</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="chat-bubble-body">
-                                                                <p>Hi,sir.
-                                                                    It’s the math problem on page 35, question 4. I’m
-                                                                    having trouble understanding how to start the
-                                                                    equation.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto"><span class="avatar"
-                                                            style="background-image: url(./static/avatars/004m.jpg)"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="chat-item">
-                                                <div class="row align-items-end">
-                                                    <div class="col-auto"><span class="avatar"
-                                                            style="background-image: url(./static/avatars/000m.jpg)"></span>
-                                                    </div>
-                                                    <div class="col col-lg-6">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-bubble-title">
-                                                                <div class="row">
-                                                                    <div class="col chat-bubble-author">Mallory Hulme
+                                    <div class="chat" id="chat-container">
+                                        <div id="chat1" class="chat-window">
+                                            <div class="chat-bubbles">
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end justify-content-end">
+                                                        <div class="col col-lg-6">
+                                                            <div class="chat-bubble chat-bubble-me">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">John Smith
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">09:32
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-auto chat-bubble-date">09:34</div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="chat-bubble-body">
-                                                                <p>Ah, that one can be tricky. Let's break it down together. First, do you remember the formula we used in class yesterday?</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
-
-                                            <div class="chat-item">
-                                                <div class="row align-items-end justify-content-end">
-                                                    <div class="col col-lg-6">
-                                                        <div class="chat-bubble chat-bubble-me">
-                                                            <div class="chat-bubble-title">
-                                                                <div class="row">
-                                                                    <div class="col chat-bubble-author">Paweł Kuna</div>
-                                                                    <div class="col-auto chat-bubble-date">09:45</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="chat-bubble-body">
-                                                                <p>Oops, I forgot.</p>
-                                                                <div class="mt-2">
-                                                                    <img src="https://media3.giphy.com/media/VABbCpX94WCfS/giphy.gif"
-                                                                        alt="" class="rounded img-fluid" />
+                                                                <div class="chat-bubble-body">
+                                                                    <p>Hi,sir.
+                                                                        It’s the math problem on page 35, question 4.
+                                                                        I’m
+                                                                        having trouble understanding how to start the
+                                                                        equation.
+                                                                    </p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-auto"><span class="avatar"
-                                                            style="background-image: url(./static/avatars/004m.jpg)"></span>
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/004m.jpg)"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="chat-item">
-                                                <div class="row align-items-end">
-                                                    <div class="col-auto"><span class="avatar"
-                                                            style="background-image: url(./static/avatars/000m.jpg)"></span>
-                                                    </div>
-                                                    <div class="col col-lg-6">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-bubble-title">
-                                                                <div class="row">
-                                                                    <div class="col chat-bubble-author">Mallory Hulme
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end">
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/009m.jpg)"></span>
+                                                        </div>
+                                                        <div class="col col-lg-6">
+                                                            <div class="chat-bubble">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">Jack Chen
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">09:34
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-auto chat-bubble-date">09:46</div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="chat-bubble-body">
-                                                                <p>That's fine. So, the equation asks for the distance, and we know the speed and time. Can you identify the speed and time from the problem?
+                                                                <div class="chat-bubble-body">
+                                                                    <p>Ah, that one can be tricky. Let's break it down
+                                                                        together. First, do you remember the formula we
+                                                                        used in class yesterday?</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="chat-item">
-                                                <div class="row align-items-end justify-content-end">
-                                                    <div class="col col-lg-6">
-                                                        <div class="chat-bubble chat-bubble-me">
-                                                            <div class="chat-bubble-title">
-                                                                <div class="row">
-                                                                    <div class="col chat-bubble-author">Paweł Kuna</div>
-                                                                    <div class="col-auto chat-bubble-date">09:47</div>
+
+
+
+
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end justify-content-end">
+                                                        <div class="col col-lg-6">
+                                                            <div class="chat-bubble chat-bubble-me">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">John Smith
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">09:45
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>Oops, I forgot.</p>
+                                                                    <div class="mt-2">
+                                                                        <img src="https://media3.giphy.com/media/VABbCpX94WCfS/giphy.gif"
+                                                                            alt="" class="rounded img-fluid" />
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="chat-bubble-body">
-                                                                <p>The speed is 50 miles per hour, and the time is 2 hours.</p>
+                                                        </div>
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/004m.jpg)"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end">
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/009m.jpg)"></span>
+                                                        </div>
+                                                        <div class="col col-lg-6">
+                                                            <div class="chat-bubble">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">Jack Chen
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">09:46
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>That's fine. So, the equation asks for the
+                                                                        distance, and we know the speed and time. Can
+                                                                        you identify the speed and time from the
+                                                                        problem?
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-auto"><span class="avatar"
-                                                            style="background-image: url(./static/avatars/004m.jpg)"></span>
+                                                </div>
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end justify-content-end">
+                                                        <div class="col col-lg-6">
+                                                            <div class="chat-bubble chat-bubble-me">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">John Smith
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">09:47
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>The speed is 50 miles per hour, and the time is 2
+                                                                        hours.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/004m.jpg)"></span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-
-                                            <div class="chat-item">
-                                                <div class="row align-items-end">
-                                                    <div class="col-auto"><span class="avatar"
-                                                            style="background-image: url(./static/avatars/000m.jpg)"></span>
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end">
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/009m.jpg)"></span>
+                                                        </div>
+                                                        <div class="col col-lg-3">
+                                                            <div class="chat-bubble">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">Jack Chen
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">09:49
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>yes, any else?
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-auto">
-                                                        <div class="chat-bubble">
-                                                            <div class="chat-bubble-body">
-                                                                <p class="text-secondary text-italic">typing<span
-                                                                        class="animated-dots"></span></p>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div id="chat2" class="chat-window" style="display: none;">
+                                            <div class="chat-bubbles">
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end justify-content-end">
+                                                        <div class="col col-lg-6">
+                                                            <div class="chat-bubble chat-bubble-me">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">John Smith
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">12:32
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>Hi, I’m having trouble understanding the concept of probability. Could you explain it again?
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/004m.jpg)"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end">
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/012m.jpg)"></span>
+                                                        </div>
+                                                        <div class="col col-lg-6">
+                                                            <div class="chat-bubble">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">David Zhang
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">13:46
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>Of course! Probability is the likelihood of an event happening. For example, if you flip a coin, the probability of getting heads is 50%.
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div id="chat3" class="chat-window" style="display: none;">
+                                            <div class="chat-bubbles">
+
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end">
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/011m.jpg)"></span>
+                                                        </div>
+                                                        <div class="col col-lg-5">
+                                                            <div class="chat-bubble">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">Eric Liu
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">10:46
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>I want to see you in my office after class
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+
+                                              
+                                            </div>
+                                        </div>
+
+                                        <div id="chat4" class="chat-window" style="display: none;">
+                                            <div class="chat-bubbles">
+                                                <div class="chat-item">
+                                                    <div class="row align-items-end justify-content-end">
+                                                        <div class="col col-lg-5">
+                                                            <div class="chat-bubble chat-bubble-me">
+                                                                <div class="chat-bubble-title">
+                                                                    <div class="row">
+                                                                        <div class="col chat-bubble-author">John Smith
+                                                                        </div>
+                                                                        <div class="col-auto chat-bubble-date">12:32
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chat-bubble-body">
+                                                                    <p>Hi Ms Wang, I'd like to take tomorrow off.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto"><span class="avatar"
+                                                                style="background-image: url(./static/avatars/004m.jpg)"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                               
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <div class="input-group input-group-flat">
-                                        <input type="text"id="messageInput" class="form-control " autocomplete="off"
+                                        <input type="text" id="messageInput" class="form-control " autocomplete="off"
                                             placeholder="Type message" />
                                         <span class="input-group-text me-2">
                                             <a href="#" class="link-secondary" data-bs-toggle="tooltip"
@@ -742,21 +868,24 @@
     <script src="./dist/js/tabler.min.js?1692870487" defer></script>
     <script src="./dist/js/demo.min.js?1692870487" defer></script>
 
+
     <script>
-        document.getElementById("sendButton").addEventListener("click", function() {
-            
+        var activeChatId = 'chat1';
+        var activeTextID='typingText1'
+        document.getElementById("sendButton").addEventListener("click", function () {
+
             var messageInput = document.getElementById("messageInput");
             var messageText = messageInput.value.trim();
             console.log("click on button!");
-    
-      
-            if (messageText !== "") {
-                var typingText = document.getElementById("typingText");
-                typingText.textContent = messageText; 
 
-               
+
+            if (messageText !== "") {
+                var typingText = document.getElementById(activeTextID);
+                typingText.textContent = messageText;
+
                 var chatBubble = document.createElement("div");
                 chatBubble.classList.add("chat-item");
+
                 chatBubble.setAttribute("style", "margin-bottom: 20px;");
                 chatBubble.innerHTML = `
                     <div class="row align-items-end justify-content-end">
@@ -764,7 +893,7 @@
                             <div class="chat-bubble chat-bubble-me">
                                 <div class="chat-bubble-title">
                                     <div class="row">
-                                        <div class="col chat-bubble-author">Paweł Kuna</div>
+                                        <div class="col chat-bubble-author">John Smith</div>
                                         <div class="col-auto chat-bubble-date">` + getCurrentTime() + `</div>
                                     </div>
                                 </div>
@@ -778,26 +907,48 @@
                         </div>
                     </div>
                 `;
-    
-               
-                var chatContainer = document.getElementById("chat-container");
+
+
+                var chatContainer = document.getElementById(activeChatId);
                 chatContainer.appendChild(chatBubble);
-    
-                
+
+
                 messageInput.value = "";
-    
-                
+
+
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
         });
-    
-        
+
+
         function getCurrentTime() {
             var now = new Date();
             var hours = now.getHours();
             var minutes = now.getMinutes();
             return (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes);
         }
+
+        // 切换聊天窗口的 JavaScript 函数
+        function switchChat(chatId, textID) {
+            // 隐藏所有聊天窗口
+            var chatWindows = document.querySelectorAll('.chat-window');
+            chatWindows.forEach(function (chatWindow) {
+                chatWindow.style.display = 'none';
+            });
+
+            // 显示对应聊天窗口
+            document.getElementById(chatId).style.display = 'block';
+
+            // 更新当前活跃的聊天窗口 ID
+            activeChatId = chatId;
+            activeTextID=textID;
+
+            
+
+        }
+
+       
+
     </script>
 </body>
 

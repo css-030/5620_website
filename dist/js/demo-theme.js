@@ -23,6 +23,20 @@
 	//localStorage.setItem(roleStorageKey, defaultRole);
 	//console.log("initial role : " + localStorage.getItem(roleStorageKey));
 
+	var userInfo = {
+		"Student": {
+			"name": "John Smith",
+			"avatar": "./static/avatars/004m.jpg"
+		},
+		"Teacher": {
+			"name": "Mark Davis",
+			"avatar": "./static/avatars/002m.jpg"
+		},
+		"Parent": {
+			"name": "Paul Smith",
+			"avatar": "./static/avatars/007m.jpg"
+		}
+	};
 
 
 
@@ -47,12 +61,13 @@
 	//role
 	var storedRole = localStorage.getItem(roleStorageKey);
 	selectedRole = storedRole ? storedRole : defaultRole;
-	console.log("the change to is: ",selectedRole);
-
+	console.log("the change to is: ", selectedRole);
 
 
 	document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById('user-role').innerText = selectedRole;
+		document.getElementById('user-name').innerText = userInfo[selectedRole].name;
+		document.getElementById('user-avatar').style.backgroundImage = `url(${userInfo[selectedRole].avatar})`;
 		updateNavbar();
 	});
 
@@ -61,11 +76,22 @@
 	window.switchRole = function (newRole) {
 		localStorage.setItem(roleStorageKey, newRole);
 		document.getElementById('user-role').innerText = newRole;
-		
+
+		// 更新头像和名字
+		var userAvatar = userInfo[newRole].avatar;
+		var userName = userInfo[newRole].name;
+
+		// 更新HTML中的头像和名字
+		document.getElementById('user-avatar').style.backgroundImage = `url(${userAvatar})`;
+		document.getElementById('user-name').innerText = userName;
+
+		//  document.querySelector('.d-none.d-xl-block .ps-2 div:first-child').innerText = userName;
+
+
 		selectedRole = newRole;
 		updateNavbar();
 		console.log("current role:" + localStorage.getItem(roleStorageKey));
-		
+
 	}
 
 	function updateNavbar() {
