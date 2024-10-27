@@ -414,11 +414,11 @@
                   <div id="teaching-plan-output" class="mt-4">
                     <h4 class="card-title">Generated Teaching Plan</h4>
                     <div id="plan-content">
-                      <p>No plan generated yet...</p>
+                      <p id="response-teachingPlan">No plan generated yet...</p>
                     </div>
                   </div>
                   <div class="mt-4">
-                    <button type="button" class="btn btn-secondary w-100" onclick="downloadTeachingPlan()">Download
+                    <button type="button" id="downloadDOC" class="btn btn-secondary w-100" >Download
                       Teaching Plan as Document</button>
                   </div>
                 </div>
@@ -431,6 +431,8 @@
   </div>
   <script src="./dist/js/tabler.min.js?1692870487"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <script>
     // Initialize the date range picker
     document.addEventListener('DOMContentLoaded', function () {
@@ -462,34 +464,96 @@
         proficiencyLevel: proficiencyLevel,
         dateRange: dateRange
       };
-
-      // Simulating backend API call to generate the plan
-      setTimeout(() => {
-        planContent.innerHTML = `<p>Based on your inputs, here is a personalized teaching plan:</p>
-          <ul>
-            <li>Step 1: Understand the basics of ${teachingPlanData.subject} suitable for ${teachingPlanData.gradeLevel} (${teachingPlanData.proficiencyLevel} level) students.</li>
-            <li>Step 2: Set your teaching goals: ${teachingPlanData.goals}.</li>
-            <li>Step 3: Dedicate ${teachingPlanData.duration} weeks to cover essential topics and conduct assessments.</li>
-            <li>Step 4: Incorporate group activities and hands-on projects to enhance student engagement.</li>
-            <li>Step 5: Monitor student progress and adjust the plan accordingly.</li>
-            <li>Step 6: The plan is scheduled from ${teachingPlanData.dateRange}.</li>
-          </ul>`;
-      }, 1000);
+      
+      fetch('http://localhost:8081/save-teachingPlan', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(teachingPlanData)  // 发送 JSON 格式的数据
+        })
+          
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                    alert("teaching plan saved successfully!");
+                  } else {
+                    alert("Failed to save plan.");
+                  }
+                })
+                .catch(error => {
+                  console.error('Error:', error);
+                  alert("An error occurred .");
+                });
+      location.reload();
     }
-
-    function downloadTeachingPlan() {
-      const planContent = document.getElementById('plan-content').innerHTML;
-      if (planContent.trim() === '' || planContent.includes('No plan generated yet')) {
-        alert('Please generate a teaching plan first.');
+  </script>
+  <script>
+    function generatePDF(title, content) {
+      // 确保 jsPDF 已正确加载
+      const { jsPDF } = window.jspdf || {};
+      if (!jsPDF) {
+        console.error("jsPDF library not found.");
         return;
       }
 
-      const blob = new Blob([planContent], { type: 'application/msword' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'TeachingPlan.doc';
-      link.click();
+      // 创建 PDF 文档实例
+      const doc = new jsPDF();
+
+      // 设置标题
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "bold");
+      doc.text(title, 10, 20);
+
+      // 添加长文本内容并设置换行
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      const lines = doc.splitTextToSize(content, 180); // 自动换行，最大宽度180
+      doc.text(lines, 10, 40); // 内容开始于 (10, 40)
+
+      // 保存 PDF 文件
+      doc.save(`${title}.pdf`);
     }
+  </script>
+  <script>
+    document.getElementById("downloadDOC").addEventListener("click", function() {
+      let value = document.getElementById("response-teachingPlan").textContent;
+      generatePDF("AI Teaching Plan", value);
+    });
+  </script>
+  <script>
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // 使用 fetch 发送 GET 请求到后端
+      fetch('http://localhost:8081/get-teachingPlan')  // 修改为你的后端API路径
+              .then(response => {
+                console.log("sb" + response)
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json();  // 将响应转换为 JSON 格式
+              })
+              .then(data => {
+
+                const resultText = data.result;
+                console.log("Fetched result: " + resultText);
+                console.log("caonimaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+                // 更新 <p> 标签内容，显示问题列表
+                // document.getElementById("generatepdf").textContent = quizText;
+                document.getElementById("response-teachingPlan").textContent = resultText;
+
+                // 自动生成并下载 quiz 的 PDF
+                //generatePDF(resultText);
+              })
+              .catch(error => {
+                console.error('Error fetching data:', error);
+                document.getElementById("response-teachingPlan").textContent = "Error fetching data.";
+              });
+    });
+
+
   </script>
 </body>
 

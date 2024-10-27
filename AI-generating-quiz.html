@@ -304,15 +304,15 @@
                           <label class="form-label" style="font-size: 18px;">Question Type</label>
                           <div class="form-selectgroup">
                             <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="HTML" class="form-selectgroup-input">
+                              <input type="checkbox" name="questionType" value="MCQ" class="form-selectgroup-input">
                               <span class="form-selectgroup-label">MCQ</span>
                             </label>
                             <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="CSS" class="form-selectgroup-input">
+                              <input type="checkbox" name="questionType" value="Short Question" class="form-selectgroup-input">
                               <span class="form-selectgroup-label">Short Question</span>
                             </label>
                             <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="PHP" class="form-selectgroup-input">
+                              <input type="checkbox" name="questionType" value="Fill Blank Question" class="form-selectgroup-input">
                               <span class="form-selectgroup-label">Fill Blank Question</span>
                             </label>
                           </div>
@@ -325,19 +325,19 @@
                           <label class="form-label" style="font-size: 18px;">Difficulty</label>
                           <div class="form-selectgroup">
                             <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="HTML" class="form-selectgroup-input">
+                              <input type="checkbox" name="difficulty" value="Easy" class="form-selectgroup-input">
                               <span class="form-selectgroup-label">Easy</span>
                             </label>
                             <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="CSS" class="form-selectgroup-input">
+                              <input type="checkbox" name="difficulty" value="Medium" class="form-selectgroup-input">
                               <span class="form-selectgroup-label">Medium</span>
                             </label>
                             <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="PHP" class="form-selectgroup-input">
+                              <input type="checkbox" name="difficulty" value="Hard" class="form-selectgroup-input">
                               <span class="form-selectgroup-label">Hard</span>
                             </label>
                             <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="PHP" class="form-selectgroup-input">
+                              <input type="checkbox" name="difficulty" value="Mixed" class="form-selectgroup-input">
                               <span class="form-selectgroup-label">Mixed</span>
                             </label>
                           </div>
@@ -393,7 +393,7 @@
                     <h4 class="card-title" style="font-size: 32px; font-weight: bold;">AI Quiz Response</h4>
                   </div>
                   <div class="card-body">
-                    <div id="response-data" style="min-height: 200px; background-color: #f8f9fa; padding: 15px; border: 1px solid #ccc;">
+                    <div id="response-quiz" style="min-height: 200px; background-color: #f8f9fa; padding: 15px; border: 1px solid #ccc;">
                       <!-- This area will be used to display the data from backend -->
                       <p style="font-size: 16px; color: #6c757d;">No data received yet...</p>
                     </div>
@@ -434,5 +434,77 @@
     	});
     });
   </script>
+
+
+<script>
+  // 点击 "Generate" 按钮后执行
+  document.querySelector(".btn-primary").addEventListener("click", function (event) {
+    event.preventDefault(); // 阻止默认表单提交
+
+    // 获取表单中的数据
+    const questionType = Array.from(document.querySelectorAll('input[name="questionType"]:checked')).map(input => input.value);
+    const questionTypeString = questionType.join(", ");
+    const difficulty = Array.from(document.querySelectorAll('input[name="difficulty"]:checked')).map(input => input.value);
+    const difficultyString = difficulty.join(", ");
+    const numberOfQuestions = document.querySelector('input[placeholder="Input Number"]').value;
+    const course = document.querySelector('input[placeholder="Input Course"]').value;
+
+    // 检查是否所有必填项都已填写
+    if (!questionType.length || !difficulty.length || !numberOfQuestions || !course) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const requestBody = {
+        questionType: questionTypeString, // 选择的问题类型数组
+        difficulty: difficultyString, // 选择的难度等级数组
+        numberOfQuestions: parseInt(numberOfQuestions), // 问题数量，转换为整数类型
+        course: course // 课程名称
+    };
+    // 发送保存 Quiz 内容的请求
+    fetch('http://localhost:8081/save-quiz', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
+    })
+    .then(response => response.json())
+    .then(data => {
+      // 检查后端是否返回成功
+      if (data.success) {
+        alert("Quiz saved successfully!");
+
+        // 成功后发送请求获取已生成的 Quiz 数据
+        fetch('http://localhost:8081/get-quiz')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            // 假设后端返回的数据格式为 { "quiz": "生成的Quiz内容" }
+            const quizText = data.result;
+            // 将返回的 Quiz 数据展示在特定的 div 中
+            document.getElementById("response-quiz").textContent = quizText;
+          })
+          .catch(error => {
+            console.error('Error fetching quiz data:', error);
+            document.getElementById("response-quiz").textContent = "Error fetching quiz data.";
+          });
+      } else {
+        alert("Failed to save quiz.");
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert("An error occurred while saving the quiz.");
+    });
+  });
+</script>
+
+
+
 </body>
 </html>

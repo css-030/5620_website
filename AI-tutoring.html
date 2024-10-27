@@ -1,417 +1,856 @@
 <!doctype html>
 <!--
-* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
-* @version 1.0.0-beta20
+        * Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+        * @version 1.0.0-beta20
 * @link https://tabler.io
-* Copyright 2018-2023 The Tabler Authors
+        * Copyright 2018-2023 The Tabler Authors
 * Copyright 2018-2023 codecalm.net Paweł Kuna
 * Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
--->
+        -->
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Intelligent Learning </title>
-    <!-- CSS files -->
-    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet"/>
-    <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
-    <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
-    <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
-    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
-    <style>
-      @import url('https://rsms.me/inter/inter.css');
-      :root {
-      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-      }
-      body {
-      	font-feature-settings: "cv03", "cv04", "cv11";
-      }
-    </style>
-  </head>
-  <body >
-    <script src="./dist/js/demo-theme.js?1692870487"></script>
-    <div class="page">
-      <!-- Navbar -->
-      <header class="navbar navbar-expand-md d-print-none" >
-        <div class="container-xl">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-            <a href=".">
-              <img src="./static/elearning_logo.svg" width="110" height="32" alt="Elearning" class="navbar-brand-image">
-              <span style="margin-left: 10px; font-size: 24px; font-weight: bold; color: #333;">Elearn</span>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Intelligent Learning </title>
+  <!-- CSS files -->
+  <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet"/>
+  <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet"/>
+  <link href="./dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
+  <link href="./dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
+  <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet"/>
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+    :root {
+      --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+    body {
+      font-feature-settings: "cv03", "cv04", "cv11";
+    }
+  </style>
+</head>
+<body >
+<script src="./dist/js/demo-theme.js?1692870487"></script>
+<div class="page">
+  <!-- Navbar -->
+  <header class="navbar navbar-expand-md d-print-none" >
+    <div class="container-xl">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+        <a href=".">
+          <img src="./static/elearning_logo.svg" width="110" height="32" alt="Elearning" class="navbar-brand-image">
+          <span style="margin-left: 10px; font-size: 24px; font-weight: bold; color: #333;">Elearn</span>
+        </a>
+      </h1>
+      <div class="navbar-nav flex-row order-md-last">
+        <div class="d-none d-md-flex">
+          <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip"
+             data-bs-placement="bottom">
+            <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
+          </a>
+          <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip"
+             data-bs-placement="bottom">
+            <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
+          </a>
+          <div class="nav-item dropdown d-none d-md-flex me-3">
+            <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
+              <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
+              <span class="badge bg-red"></span>
             </a>
-          </h1>
-          <div class="navbar-nav flex-row order-md-last">
-            <div class="d-none d-md-flex">
-              <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip"
-		   data-bs-placement="bottom">
-                <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
-              </a>
-              <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip"
-		   data-bs-placement="bottom">
-                <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
-              </a>
-              <div class="nav-item dropdown d-none d-md-flex me-3">
-                <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
-                  <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
-                  <span class="badge bg-red"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">New Message</h3>
+            <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">New Message</h3>
+                </div>
+                <div class="list-group list-group-flush list-group-hoverable">
+                  <div class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col-auto"><span class="status-dot status-dot-animated bg-red d-block"></span></div>
+                      <div class="col text-truncate">
+                        <a href="#" class="text-body d-block">Emily Wang</a>
+                        <div class="d-block text-secondary text-truncate mt-n1">
+                          Please remember to submit your assignment...
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <a href="#" class="list-group-item-actions">
+                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+                        </a>
+                      </div>
                     </div>
-                    <div class="list-group list-group-flush list-group-hoverable">
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto"><span class="status-dot status-dot-animated bg-red d-block"></span></div>
-                          <div class="col text-truncate">
-                            <a href="#" class="text-body d-block">Emily Wang</a>
-                            <div class="d-block text-secondary text-truncate mt-n1">
-                              Please remember to submit your assignment...
-                            </div>
-                          </div>
-                          <div class="col-auto">
-                            <a href="#" class="list-group-item-actions">
-                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                              <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                            </a>
-                          </div>
+                  </div>
+                  <div class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col-auto"><span class="status-dot d-block"></span></div>
+                      <div class="col text-truncate">
+                        <a href="#" class="text-body d-block">Michael Li</a>
+                        <div class="d-block text-secondary text-truncate mt-n1">
+                          I've uploaded the lecture slides on...
                         </div>
                       </div>
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto"><span class="status-dot d-block"></span></div>
-                          <div class="col text-truncate">
-                            <a href="#" class="text-body d-block">Michael Li</a>
-                            <div class="d-block text-secondary text-truncate mt-n1">
-                              I've uploaded the lecture slides on...
-                            </div>
-                          </div>
-                          <div class="col-auto">
-                            <a href="#" class="list-group-item-actions show">
-                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                              <svg xmlns="http://www.w3.org/2000/svg" class="icon text-yellow" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                            </a>
-                          </div>
+                      <div class="col-auto">
+                        <a href="#" class="list-group-item-actions show">
+                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon text-yellow" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col-auto"><span class="status-dot d-block"></span></div>
+                      <div class="col text-truncate">
+                        <a href="#" class="text-body d-block">Jessica Zhang</a>
+                        <div class="d-block text-secondary text-truncate mt-n1">
+                          The group project deadline has been...
                         </div>
                       </div>
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto"><span class="status-dot d-block"></span></div>
-                          <div class="col text-truncate">
-                            <a href="#" class="text-body d-block">Jessica Zhang</a>
-                            <div class="d-block text-secondary text-truncate mt-n1">
-                              The group project deadline has been...
-                            </div>
-                          </div>
-                          <div class="col-auto">
-                            <a href="#" class="list-group-item-actions">
-                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                              <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                            </a>
-                          </div>
+                      <div class="col-auto">
+                        <a href="#" class="list-group-item-actions">
+                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col-auto"><span class="status-dot status-dot-animated bg-green d-block"></span></div>
+                      <div class="col text-truncate">
+                        <a href="#" class="text-body d-block"> David Chen</a>
+                        <div class="d-block text-secondary text-truncate mt-n1">
+                          Can you attend the extra session...
                         </div>
                       </div>
-                      <div class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto"><span class="status-dot status-dot-animated bg-green d-block"></span></div>
-                          <div class="col text-truncate">
-                            <a href="#" class="text-body d-block"> David Chen</a>
-                            <div class="d-block text-secondary text-truncate mt-n1">
-                              Can you attend the extra session...
-                            </div>
-                          </div>
-                          <div class="col-auto">
-                            <a href="#" class="list-group-item-actions">
-                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
-                              <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
-                            </a>
-                          </div>
-                        </div>
+                      <div class="col-auto">
+                        <a href="#" class="list-group-item-actions">
+                          <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="nav-item dropdown">
-              <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                <span class="avatar avatar-sm" style="background-image: url(./static/avatars/004m.jpg)" id="user-avatar"></span>
-                <div class="d-none d-xl-block ps-2">
-                  <div id="user-name">Paweł Kuna</div>
-                  <div id="user-role" class="mt-1 small text-secondary">Student</div>
-                </div>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <!-- <a href="#" class="dropdown-item">Status</a> -->
-                <!-- change role -->
-                <div class="dropdown-item-text"><strong>Switch Role</strong></div>
-                <a href="./index.html" class="dropdown-item" onclick="switchRole('Student')">Student</a>
-                <a href="./index.html" class="dropdown-item" onclick="switchRole('Teacher')">Teacher</a>
-                <a href="./index.html" class="dropdown-item" onclick="switchRole('Parent')">Parent</a>
-                <div class="dropdown-divider"></div>
-
-                <a href="./profile.html" class="dropdown-item">Profile</a>
-                <!-- <a href="#" class="dropdown-item">Feedback</a> -->
-                <!-- <div class="dropdown-divider"></div> -->
-                <a href="./settings.html" class="dropdown-item">Settings</a>
-                <a href="./sign-in.html" class="dropdown-item">Logout</a>
-              </div>
-            </div>
           </div>
         </div>
-      </header>
-      <header class="navbar-expand-md">
-        <div class="collapse navbar-collapse" id="navbar-menu">
-          <div class="navbar">
-            <div class="container-xl">
-              <ul class="navbar-nav">
-                <li class="nav-item " id="nav-home">
-                  <a class="nav-link" href="./index.html" >
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+            <span class="avatar avatar-sm" style="background-image: url(./static/avatars/004m.jpg)"></span>
+            <div class="d-none d-xl-block ps-2">
+              <div>Paweł Kuna</div>
+              <div id="user-role" class="mt-1 small text-secondary">Student</div>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+            <!-- <a href="#" class="dropdown-item">Status</a> -->
+            <!-- change role -->
+            <div class="dropdown-item-text"><strong>Switch Role</strong></div>
+            <a href="#" class="dropdown-item" onclick="switchRole('Student')">Student</a>
+            <a href="#" class="dropdown-item" onclick="switchRole('Teacher')">Teacher</a>
+            <a href="#" class="dropdown-item" onclick="switchRole('Parent')">Parent</a>
+            <div class="dropdown-divider"></div>
+
+            <a href="./profile.html" class="dropdown-item">Profile</a>
+            <!-- <a href="#" class="dropdown-item">Feedback</a> -->
+            <!-- <div class="dropdown-divider"></div> -->
+            <a href="./settings.html" class="dropdown-item">Settings</a>
+            <a href="./sign-in.html" class="dropdown-item">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <header class="navbar-expand-md">
+    <div class="collapse navbar-collapse" id="navbar-menu">
+      <div class="navbar">
+        <div class="container-xl">
+          <ul class="navbar-nav">
+            <li class="nav-item " id="nav-home">
+              <a class="nav-link" href="./index.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      Home
-                    </span>
-                  </a>
-                </li>
-                <li class="nav-item" id="online-chat">
-                  <a class="nav-link" href="./Online-Chat.html" >
+                <span class="nav-link-title">
+Home
+        </span>
+              </a>
+            </li>
+            <li class="nav-item" id="online-chat">
+              <a class="nav-link" href="./Online-Chat.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                       <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11l3 3l8 -8" /><path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" /></svg> -->
-                      <svg  xmlns="http://www.w3.org/2000/svg" class="icon"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-message-chatbot"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" /><path d="M9.5 9h.01" /><path d="M14.5 9h.01" /><path d="M9.5 13a3.5 3.5 0 0 0 5 0" /></svg>                    
+                      <svg  xmlns="http://www.w3.org/2000/svg" class="icon"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-message-chatbot"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" /><path d="M9.5 9h.01" /><path d="M14.5 9h.01" /><path d="M9.5 13a3.5 3.5 0 0 0 5 0" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      Online Chat
+                <span class="nav-link-title">
+Online Chat
                     </span>
-                  </a>
-                </li>
-              
-                <li class="nav-item active" id="AI-tutoring">
-                  <a class="nav-link" href="./AI-tutoring.html" >
+              </a>
+            </li>
+
+            <li class="nav-item active" id="AI-tutoring">
+              <a class="nav-link" href="./AI-tutoring.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/ghost -->
                       <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 11a7 7 0 0 1 14 0v7a1.78 1.78 0 0 1 -3.1 1.4a1.65 1.65 0 0 0 -2.6 0a1.65 1.65 0 0 1 -2.6 0a1.65 1.65 0 0 0 -2.6 0a1.78 1.78 0 0 1 -3.1 -1.4v-7" /><path d="M10 10l.01 0" /><path d="M14 10l.01 0" /><path d="M10 14a3.5 3.5 0 0 0 4 0" /></svg> -->
                       <svg  xmlns="http://www.w3.org/2000/svg" class="icon" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-robot"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /><path d="M12 2v2" /><path d="M9 12v9" /><path d="M15 12v9" /><path d="M5 16l4 -2" /><path d="M15 14l4 2" /><path d="M9 18h6" /><path d="M10 8v.01" /><path d="M14 8v.01" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      AI Tutoring
+                <span class="nav-link-title">
+AI Tutoring
                     </span>
-                  </a>
-                </li>
-                <li class="nav-item" id="AI-learning-plan">
-                  <a class="nav-link" href="./AI-Learning-Plan.html" >
+              </a>
+            </li>
+            <li class="nav-item" id="AI-learning-plan">
+              <a class="nav-link" href="./AI-Learning-Plan.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
                       <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 9l9 6l9 -6l-9 -6l-9 6" /><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 19l6 -6" /><path d="M15 13l6 6" /></svg> -->
                       <svg  xmlns="http://www.w3.org/2000/svg" class="icon" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-checklist"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.615 20h-2.615a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8" /><path d="M14 19l2 2l4 -4" /><path d="M9 8h4" /><path d="M9 12h2" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      AI Learning Plan
-                    </span>
-                  </a>
-                </li>
-                <li class="nav-item" id="Student-grade-management">
-                  <a class="nav-link" href="./AI-generating-quiz.html" >
+                <span class="nav-link-title">
+AI Learning Plan
+        </span>
+              </a>
+            </li>
+            <li class="nav-item" id="Student-grade-management">
+              <a class="nav-link" href="./Student-grade-management.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
                       <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 9l9 6l9 -6l-9 -6l-9 6" /><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 19l6 -6" /><path d="M15 13l6 6" /></svg> -->
                       <svg  xmlns="http://www.w3.org/2000/svg"  class="icon" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-school"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      AI Generating Quiz
-                    </span>
-                  </a>
-                </li>
-                <li class="nav-item" id="AI-teaching-plan">
-                  <a class="nav-link" href="./AI-Teaching-Plan.html" >
+                <span class="nav-link-title">
+AI Generating Quiz
+        </span>
+              </a>
+            </li>
+            <li class="nav-item" id="AI-teaching-plan">
+              <a class="nav-link" href="./AI-Teaching-Plan.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
                       <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 9l9 6l9 -6l-9 -6l-9 6" /><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 19l6 -6" /><path d="M15 13l6 6" /></svg> -->
-                      <svg  xmlns="http://www.w3.org/2000/svg" class="icon" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-checklist"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.615 20h-2.615a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8" /><path d="M14 19l2 2l4 -4" /><path d="M9 8h4" /><path d="M9 12h2" /></svg>                    
+                      <svg  xmlns="http://www.w3.org/2000/svg" class="icon" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-checklist"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9.615 20h-2.615a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8" /><path d="M14 19l2 2l4 -4" /><path d="M9 8h4" /><path d="M9 12h2" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      AI Teaching Plan
-                    </span>
-                  </a>
-                </li>
-                <li class="nav-item" id="Child-performance">
-                  <a class="nav-link" href="./Child-Performance.html" >
+                <span class="nav-link-title">
+AI Teaching Plan
+        </span>
+              </a>
+            </li>
+            <li class="nav-item" id="Child-performance">
+              <a class="nav-link" href="./Child-Performance.html" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/mail-opened -->
                       <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 9l9 6l9 -6l-9 -6l-9 6" /><path d="M21 9v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 19l6 -6" /><path d="M15 13l6 6" /></svg> -->
                       <svg  xmlns="http://www.w3.org/2000/svg"  class="icon" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-school"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      Child's Performance
+                <span class="nav-link-title">
+Child's Performance
                     </span>
-                  </a>
-                </li>
-                
-              </ul>
-              <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                <form action="./" method="get" autocomplete="off" novalidate>
-                  <div class="input-icon">
+              </a>
+            </li>
+
+          </ul>
+          <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+            <form action="./" method="get" autocomplete="off" novalidate>
+              <div class="input-icon">
                     <span class="input-icon-addon">
                       <!-- Download SVG icon from http://tabler-icons.io/i/search -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                     </span>
-                    <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website">
-                  </div>
-                </form>
+                <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website">
               </div>
-            </div>
+            </form>
           </div>
         </div>
-      </header>
-      <div class="page-wrapper">
+      </div>
+    </div>
+  </header>
+  <div class="page-wrapper">
 
-        <!-- Page header -->
-        <div class="page-header d-print-none" style="padding: 20px;">
-          <div class="container-xl">
-            <div class="row g-2 align-items-start">
-              <div class="col-12">
-                <h2 class="page-title" style="font-size: 36px; font-weight: bold;"> 
-                  Welcome, Student!
-                </h2>
-                <h3 style="font-size: 28px; margin-top: 15px;"> 
-                  Start to Ask Question with AI Tutor!
-                </h3>
-              </div>
-            </div>
+    <!-- Page header -->
+    <div class="page-header d-print-none" style="padding: 20px;">
+      <div class="container-xl">
+        <div class="row g-2 align-items-start">
+          <div class="col-12">
+            <h2 class="page-title" style="font-size: 36px; font-weight: bold;">
+              Welcome, Student!
+            </h2>
+            <h3 style="font-size: 28px; margin-top: 15px;">
+              Start to Ask Question with AI Tutor!
+            </h3>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Page body -->
-        <div class="page-body">
-          <div class="container-xl">
-            <div class="row row-cards">
-              <!-- Left Column: Form Elements -->
-              <div class="col-md-6">
-                <form action="https://httpbin.org/post" method="post" class="card">
-                  <div class="card-header">
-                    <h4 class="card-title" style="font-size: 32px; font-weight: bold;">Tutoring Dashboard</h4>
-                  </div>
-                  <div class="card-body">
-                    <!-- First Row: Submission Type and Required Tutoring -->
-                    <div class="row g-3">
-                      <!-- Submission Type Column -->
-                      <div class="col-md-6">
-                        <div class="mb-3">
-                          <label class="form-label" style="font-size: 18px;">Submission Type</label>
-                          <div class="form-selectgroup">
-                            <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="HTML" class="form-selectgroup-input">
-                              <span class="form-selectgroup-label">Text</span>
-                            </label>
-                            <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="CSS" class="form-selectgroup-input">
-                              <span class="form-selectgroup-label">PDF</span>
-                            </label>
-                            <label class="form-selectgroup-item">
-                              <input type="checkbox" name="name" value="PHP" class="form-selectgroup-input">
-                              <span class="form-selectgroup-label">Picture</span>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Required Tutoring Column -->
-                      <div class="col-md-6">
-                        <div class="mb-3">
-                          <label class="form-label" style="font-size: 18px;">Required Tutoring</label>
-                          <div>
-                            <label class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="radios-inline" checked>
-                              <span class="form-check-label">Only Hint</span>
-                            </label>
-                            <label class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="radios-inline">
-                              <span class="form-check-label">Answer</span>
-                            </label>
-                          </div>
-                        </div>
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="row row-cards">
+          <!-- Left Column: Form Elements -->
+          <div class="col-md-6">
+            <form action="" method="post" class="card">
+              <div class="card-header">
+                <h4 class="card-title" style="font-size: 32px; font-weight: bold;">Tutoring Dashboard</h4>
+              </div>
+              <div class="card-body">
+                <!-- First Row: Submission Type and Required Tutoring -->
+                <div class="row g-3">
+                  <!-- Submission Type Column -->
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" style="font-size: 18px;">Submission Type</label>
+                      <div class="form-selectgroup">
+                        <label class="form-selectgroup-item">
+                          <input type="checkbox" name="name" value="HTML" class="form-selectgroup-input">
+                          <span class="form-selectgroup-label">Text</span>
+                        </label>
+                        <label class="form-selectgroup-item">
+                          <input type="checkbox" name="name" value="CSS" class="form-selectgroup-input">
+                          <span class="form-selectgroup-label">PDF</span>
+                        </label>
+                        <label class="form-selectgroup-item">
+                          <input type="checkbox" name="name" value="PHP" class="form-selectgroup-input">
+                          <span class="form-selectgroup-label">Picture</span>
+                        </label>
                       </div>
                     </div>
-
-                    <!-- Text Area -->
-                    <div class="mb-3">
-                      <label class="form-label" style="font-size: 18px;">Type your question</label>
-                      <textarea class="form-control" name="example-textarea-input" rows="6" style="font-size: 18px; padding: 12px;" placeholder="Type your question here..."></textarea>
-                    </div>
-
-                    <!-- Upload Files Section -->
-                    <div class="mb-3">
-                      <label class="form-label" style="font-size: 18px;">Upload Files</label>
-                      <input class="form-control" type="file" name="file">
-                    </div>
                   </div>
 
-                  <div class="card-footer text-end">
-                    <div class="d-flex">
-                      <button type="submit" class="btn btn-primary ms-auto" style="font-size: 18px;">Ask Question</button>
+                  <!-- Required Tutoring Column -->
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" style="font-size: 18px;">Required Tutoring</label>
+                      <div>
+                        <label class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="radios-inline" checked>
+                          <span class="form-check-label">Only Hint</span>
+                        </label>
+                        <label class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="radios-inline">
+                          <span class="form-check-label">Answer</span>
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </form>
+                </div>
+
+                <!-- Text Area -->
+                <div class="mb-3">
+                  <label class="form-label" style="font-size: 18px;">Type your question</label>
+                  <textarea id="question" class="form-control" name="question" rows="6" style="font-size: 18px; padding: 12px;" placeholder="Type your question here..."></textarea>
+                </div>
+
+                <!-- Upload Files Section -->
+                <div class="mb-3">
+                  <label class="form-label" style="font-size: 18px;">Upload Files</label>
+                  <input class="form-control" type="file" name="file">
+                </div>
               </div>
 
-              <!-- Right Column: Progress and Data Display Section -->
-              <div class="col-md-6">
-                <div class="card">
-                  <!-- Progress Bar Section -->
-                  <div class="mb-4" style="padding: 15px;">
-                    <label class="form-label" style="font-size: 18px;">I am thinking......</label>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-indeterminate bg-green"></div>
-                    </div>
-                  </div>
+              <div class="card-footer text-end">
+                <div class="d-flex">
+                  <button id="submit-button" type="submit" class="btn btn-primary ms-auto" style="font-size: 18px;">Ask Question</button>
+                </div>
+              </div>
+            </form>
+          </div>
 
-                  <!-- Response Data Section -->
-                  <div class="card-header">
-                    <h4 class="card-title" style="font-size: 32px; font-weight: bold;">AI Tutor Response</h4>
-                  </div>
-                  <div class="card-body">
-                    <div id="response-data" style="min-height: 200px; background-color: #f8f9fa; padding: 15px; border: 1px solid #ccc;">
-                      <!-- This area will be used to display the data from backend -->
-                      <p style="font-size: 16px; color: #6c757d;">No data received yet...</p>
-                    </div>
-                  </div>
+          <!-- Right Column: Progress and Data Display Section -->
+          <div class="col-md-6">
+            <div class="card">
+              <!-- Progress Bar Section -->
+              <div class="mb-4" style="padding: 15px;">
+                <label class="form-label" style="font-size: 18px;">I am thinking......</label>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-indeterminate bg-green"></div>
+                </div>
+              </div>
+
+              <!-- Response Data Section -->
+              <div class="card-header">
+                <h4 class="card-title" style="font-size: 32px; font-weight: bold;">AI Tutor Response</h4>
+              </div>
+              <div class="card-body">
+                <div id="response-data" style="min-height: 200px; background-color: #f8f9fa; padding: 15px; border: 1px solid #ccc;">
+                  <!-- This area will be used to display the data from backend -->
+                  <p id="response-aitutor" style="font-size: 16px; color: #6c757d;">Please waiting, No data received yet...</p>
                 </div>
               </div>
             </div>
           </div>
-        <!-- Page body end -->
         </div>
       </div>
+      <!-- Page body end -->
     </div>
   </div>
+</div>
+</div>
 
-  
-  <!-- Libs JS -->
-  <script src="./dist/libs/nouislider/dist/nouislider.min.js?1692870487" defer></script>
-  <script src="./dist/libs/litepicker/dist/litepicker.js?1692870487" defer></script>
-  <script src="./dist/libs/tom-select/dist/js/tom-select.base.min.js?1692870487" defer></script>
-  <!-- Tabler Core -->
-  <script src="./dist/js/tabler.min.js?1692870487" defer></script>
-  <script src="./dist/js/demo.min.js?1692870487" defer></script>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    	let sliderTriggerList = [].slice.call(document.querySelectorAll("[data-slider]"));
-    	sliderTriggerList.map(function (sliderTriggerEl) {
-    		let options = {};
-    		if (sliderTriggerEl.getAttribute("data-slider")) {
-    			options = JSON.parse(sliderTriggerEl.getAttribute("data-slider"));
-    		}
-    		let slider = noUiSlider.create(sliderTriggerEl, options);
-    		if (options['js-name']) {
-    			window[options['js-name']] = slider;
-    		}
-    	});
+
+<!-- Libs JS -->
+<script src="./dist/libs/nouislider/dist/nouislider.min.js?1692870487" defer></script>
+<script src="./dist/libs/litepicker/dist/litepicker.js?1692870487" defer></script>
+<script src="./dist/libs/tom-select/dist/js/tom-select.base.min.js?1692870487" defer></script>
+<!-- Tabler Core -->
+<script src="./dist/js/tabler.min.js?1692870487" defer></script>
+<script src="./dist/js/demo.min.js?1692870487" defer></script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-states'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  document.getElementById("submit-button").addEventListener("click", function() {
+    // 获取 textarea 中的内容
+    const question = document.getElementById("question").value;
+
+    // 检查内容是否为空
+    if (!question) {
+      alert("Please enter a question!");
+      return;
+    }
+
+    // 使用 fetch 发送 POST 请求，将问题内容发送给后端
+    fetch('http://localhost:8081/save-question', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ question: question })  // 发送 JSON 格式的数据
+    })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                alert("Question saved successfully!");
+
+              } else {
+                alert("Failed to save question.");
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert("An error occurred while saving the question.");
+            });
+  });
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    window.noUiSlider && (noUiSlider.create(document.getElementById('range-simple'), {
+      start: 20,
+      connect: [true, false],
+      step: 10,
+      range: {
+        min: 0,
+        max: 100
+      }
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  document.getElementById('question-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form from submitting the traditional way
+
+    const question = document.getElementById('question').value;
+
+    fetch('/submit-question', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        'question': question
+      })
+    })
+            .then(response => response.text())
+            .then(data => {
+              debugger
+              alert(data); // 使用 fetch 发送 GET 请求到后端
+              fetch('http://localhost:8081/api/apiAgent')  // 修改为你的后端API路径
+                      .then(response => {
+                        if (!response.ok) {
+                          throw new Error('Network response was not ok');
+                        }
+                        return response.json();  // 将响应转换为 JSON 格式
+                      })
+                      .then(data => {
+                        // 假设后端返回的是 { "quiz": "问题列表字符串" }
+                        const resultText = data.result;  // 获取返回对象中的 quiz 字段
+                        console.log("caonima" + resultText)
+
+                        // 更新 <p> 标签内容，显示问题列表
+
+                        document.getElementById("response-aitutor").textContent = resultText;
+
+                      })
+                      .catch(error => {
+                        console.error('Error fetching data:', error);
+                        console.log('Error fetching data:', error)
+                        document.getElementById("response-aitutor").textContent = "Error fetching data.";
+                      });
+            });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // resetResponseDisplay();
+  });
+
+  function resetResponseDisplay() {
+    debugger
+    document.getElementById("response-aitutor").textContent = "Please waiting, No data received yet...";
+  }
+
+  document.querySelectorAll('.your-tab-selector').forEach(tab => {
+    tab.addEventListener('click', function() {
+      resetResponseDisplay();
     });
-  </script>
+  });
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    window.noUiSlider && (noUiSlider.create(document.getElementById('range-connect'), {
+      start: [60, 90],
+      connect: [false, true, false],
+      step: 10,
+      range: {
+        min: 0,
+        max: 100
+      }
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    window.noUiSlider && (noUiSlider.create(document.getElementById('range-color'), {
+      start: 40,
+      connect: [true, false],
+      step: 10,
+      range: {
+        min: 0,
+        max: 100
+      }
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    window.Litepicker && (new Litepicker({
+      element: document.getElementById('datepicker-default'),
+      buttonText: {
+        previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>`,
+        nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>`,
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    window.Litepicker && (new Litepicker({
+      element: document.getElementById('datepicker-icon'),
+      buttonText: {
+        previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>`,
+        nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>`,
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    window.Litepicker && (new Litepicker({
+      element: document.getElementById('datepicker-icon-prepend'),
+      buttonText: {
+        previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>`,
+        nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>`,
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    window.Litepicker && (new Litepicker({
+      element: document.getElementById('datepicker-inline'),
+      buttonText: {
+        previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>`,
+        nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>`,
+      },
+      inlineMode: true,
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-tags'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-users'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-optgroups'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-people'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-countries'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-labels'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-countries-valid'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  // @formatter:off
+  document.addEventListener("DOMContentLoaded", function () {
+    var el;
+    window.TomSelect && (new TomSelect(el = document.getElementById('select-countries-invalid'), {
+      copyClassesToDropdown: false,
+      dropdownParent: 'body',
+      controlInput: '<input>',
+      render:{
+        item: function(data,escape) {
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+        option: function(data,escape){
+          if( data.customProperties ){
+            return '<div><span class="dropdown-item-indicator">' + data.customProperties + '</span>' + escape(data.text) + '</div>';
+          }
+          return '<div>' + escape(data.text) + '</div>';
+        },
+      },
+    }));
+  });
+  // @formatter:on
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let sliderTriggerList = [].slice.call(document.querySelectorAll("[data-slider]"));
+    sliderTriggerList.map(function (sliderTriggerEl) {
+      let options = {};
+      if (sliderTriggerEl.getAttribute("data-slider")) {
+        options = JSON.parse(sliderTriggerEl.getAttribute("data-slider"));
+      }
+      let slider = noUiSlider.create(sliderTriggerEl, options);
+      if (options['js-name']) {
+        window[options['js-name']] = slider;
+      }
+    });
+  });
+</script>
 </body>
 </html>

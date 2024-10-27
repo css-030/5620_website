@@ -320,17 +320,17 @@
                       </div>
                       <div id='calendar'></div>
                       <div class="mb-3 mt-4">
-                        <button type="button" class="btn btn-primary w-100" onclick="generateLearningPlan()">Generate Learning Plan</button>
+                        <button type = "button" class="btn btn-primary w-100" onclick="generateLearningPlan()">Generate Learning Plan</button>
                       </div>
                     </form>
                     <div id="learning-plan-output" class="mt-4">
                       <h4 class="card-title">Generated Learning Plan</h4>
                       <div id="plan-content">
-                        <p>No plan generated yet...</p>
+                        <p id="response-learningPlan">No plan generated yet...</p>
                       </div>
                     </div>
                     <div class="mt-4">
-                      <button type="button" class="btn btn-secondary w-100" onclick="downloadLearningPlan()">Download Learning Plan as Document</button>
+                      <button type = "button" class="btn btn-secondary w-100" id="downloadDOC">Download Learning Plan as Document</button>
                     </div>
                   </div>
                 </div>
@@ -343,6 +343,7 @@
     <script src="./dist/js/tabler.min.js?1692870487"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
       // Initialize the date range picker
       document.addEventListener('DOMContentLoaded', function() {
@@ -364,7 +365,12 @@
         calendar.render();
       });
 
-      function generateLearningPlan() {
+      function generateLearningPlan(event) {
+        if (event) {
+            event.preventDefault(); // 阻止默认提交行为
+         }
+
+        // 获取表单中的用户输入
         const subject = document.querySelector('input[name="subject"]').value;
         const goals = document.querySelector('textarea[name="goals"]').value;
         const duration = document.querySelector('input[name="duration"]').value;
@@ -372,11 +378,13 @@
         const dateRange = document.querySelector('#learning-plan-daterange').value;
         const planContent = document.getElementById('plan-content');
 
+        // 验证用户输入是否完整
         if (subject.trim() === '' || goals.trim() === '' || duration.trim() === '' || dateRange.trim() === '') {
           planContent.innerHTML = '<p>Please fill in all the fields to generate a plan.</p>';
           return;
-        }
+         }
 
+        // 创建请求数据
         const learningPlanData = {
           subject: subject,
           goals: goals,
@@ -385,34 +393,102 @@
           dateRange: dateRange
         };
 
-        // Simulating backend API call to generate the plan
-        setTimeout(() => {
-          planContent.innerHTML = `<p>Based on your inputs, here is a personalized learning plan:</p>
-          <ul>
-            <li>Step 1: Understand the basics of ${learningPlanData.subject} through ${learningPlanData.learningStyle} resources.</li>
-            <li>Step 2: Set your learning goals: ${learningPlanData.goals}.</li>
-            <li>Step 3: Dedicate ${learningPlanData.duration} weeks to practicing exercises and completing quizzes.</li>
-            <li>Step 4: Participate in discussion groups to clear doubts.</li>
-            <li>Step 5: Attempt projects or assignments related to ${learningPlanData.subject}.</li>
-            <li>Step 6: Regularly review progress and adjust the learning plan as needed.</li>
-            <li>Step 7: The plan is scheduled from ${learningPlanData.dateRange}.</li>
-          </ul>`;
-        }, 1000);
-      }
+        // 发送 POST 请求到后端
+        fetch('http://localhost:8081/save-learningPlan', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(learningPlanData)  // 发送 JSON 格式的数据
+        })
 
-      function downloadLearningPlan() {
-        const planContent = document.getElementById('plan-content').innerHTML;
-        if (planContent.trim() === '' || planContent.includes('No plan generated yet')) {
-          alert('Please generate a learning plan first.');
-          return;
-        }
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                    alert("Question saved successfully!");
+                fetch('http://localhost:8081/get-learningPlan')  // 修改为你的后端API路径
+                        .then(response => {
+                          console.log("sb" + response)
+                          if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                          }
+                          return response.json();  // 将响应转换为 JSON 格式
+                        })
+                        .then(data => {
 
-        const blob = new Blob([planContent], { type: 'application/msword' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'LearningPlan.doc';
-        link.click();
-      }
+                          let resultText = data.result;
+                          resultText = resultText.replace(/\n/g, "<br>");
+                          console.log("Fetched result: " + resultText);
+                          console.log("caonimaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                          console.log(document.getElementById("response-learningPlan").textContent)
+
+                          // 更新 <p> 标签内容，显示问题列表
+                          // document.getElementById("generatepdf").textContent = quizText;
+                          document.getElementById("response-learningPlan").innerHTML = resultText;
+
+                          // 自动生成并下载 quiz 的 PDF
+                          //generatePDF(resultText);
+                        })
+                        .catch(error => {
+                          console.error('Error fetching data:', error);
+                          document.getElementById("response-learningPlan").textContent = "Error fetching data.";
+                        });
+                  } else {
+                    alert("Failed to save question.");
+                  }
+                })
+                .catch(error => {
+                  console.error('Error:', error);
+                  alert("An error occurred while saving the question.");
+                });
+        // location.reload();
+    }
     </script>
+    <script>
+      document.getElementById("downloadDOC").addEventListener("click", function() {
+        let value = document.getElementById("response-learningPlan").innerHTML;
+        value = value.replace(/<br\s*\/?>/gi, "\n");
+        generatePDF("AI Learning Plan", value);
+      });
+    </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 使用 fetch 发送 GET 请求到后端
+
+    });
+  </script>
+    <script>
+
+    function generatePDF(title, content) {
+      // 确保 jsPDF 已正确加载
+      const { jsPDF } = window.jspdf || {};
+      if (!jsPDF) {
+        console.error("jsPDF library not found.");
+        return;
+      }
+
+      // 创建 PDF 文档实例
+      const doc = new jsPDF();
+
+      // 设置标题
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "bold");
+      doc.text(title, 10, 20);
+
+      // 添加长文本内容并设置换行
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      content = content.replace(/<br\s*\/?>/gi, "\n");
+      console.log("???????"+content)
+      const lines = doc.splitTextToSize(content, 180); // 自动换行，最大宽度180
+      doc.text(lines, 10, 40); // 内容开始于 (10, 40)
+
+
+      // 保存 PDF 文件
+      doc.save(`${title}.pdf`);
+    }
+
+  </script>
+
   </body>
 </html>
